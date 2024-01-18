@@ -1,0 +1,16 @@
+.nav {
+    background-color: black;
+    color: #fff;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    height: 50px;
+    align-items: center;
+}
+
+.navItemStyle {
+    display: flex;
+    flex-direction: row;
+    /* padding: 2.5rem; */
+    gap: 1.5rem;
+}

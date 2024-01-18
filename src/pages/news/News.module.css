@@ -1,0 +1,16 @@
+
+.container {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: 25px;
+    padding: 50px;
+}
+
+.innerContainer {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 15px;
+}
