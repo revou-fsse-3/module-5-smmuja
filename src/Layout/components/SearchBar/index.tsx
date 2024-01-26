@@ -25,7 +25,7 @@ const SearchBar: SearchComponents = ({}) => {
             onChange={(e) => setSearch(e.target.value)}
             type="text"
             placeholder="Search news..."
-            className="bg-slate-100 text-white rounded-bl-xl rounded-tl-xl"
+            className="bg-slate-100 text-black rounded-bl-xl rounded-tl-xl"
         />
         <button
             disabled={!search}

@@ -5,6 +5,7 @@ import styles from './../News.module.css'
 // import {useQuery } from 'react-query';
 // import { GetServerSideProps, InferGetServerSidePropsType } from 'next';
 import axios from 'axios';
+import AuthComponent from "@/components/Auth/AuthComponent";
 
 interface Business {
     children: ReactNode;
@@ -57,4 +58,4 @@ const Business = ({articles} : BusinessProps) => {
 };
 
 
-export default Business;
+export default AuthComponent(Business);

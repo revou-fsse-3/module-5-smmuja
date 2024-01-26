@@ -1,0 +1,51 @@
+import React from "react";
+import { render, screen, fireEvent, waitFor} from "@testing-library/react";
+import Navbar from ".";
+import { useRouter } from "next/router";
+import mockRouter from 'next-router-mock'
+
+jest.mock('next/router', () => require('next-router-mock'));
+
+describe('Navbar', () => {
+    const mockSubmit = jest.fn();
+
+    // it('Mock the useRouter hook', () => {
+    //     mockRouter.push('/');
+    // })
+
+    test('Navbar renders correctly', () => {
+        render(<Navbar/>)
+
+        // const Home = screen.getByText('ABC NEWS');
+        // expect(Home).toBeDefined();
+
+        const Sports = screen.getByText('Sports');
+        expect(Sports).toBeDefined();
+
+        const Health = screen.getByText('Health');
+        expect(Health).toBeDefined();
+        
+        const Entertainment = screen.getByText('Entertainment');
+        expect(Entertainment).toBeDefined();
+
+        const Business = screen.getByText('Business Premium');
+        expect(Business).toBeDefined();
+
+        const Tech = screen.getByText('Tech Premium');
+        expect(Tech).toBeDefined();
+
+
+    })
+
+    // test('Submit with data from input value', () => {
+    //     // render(<Login onSubmit={mockSubmit}/>)
+    //     render(<Navbar/>)
+    //     const emailInput = screen.getByPlaceholderText('Input email');
+    //     const passwordInput = screen.getByPlaceholderText('Input password');
+    //     const buttonSubmit = screen.getByText('Login');
+
+    //     fireEvent.change(emailInput, {target: { value: 'Abc1@email.com'}});
+    //     fireEvent.change(passwordInput, {target: { value: 'Abc1Abc1'}});
+    //     fireEvent.click(buttonSubmit);
+    // })
+});

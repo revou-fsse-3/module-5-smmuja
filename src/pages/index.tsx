@@ -15,6 +15,7 @@ interface Home {
     title : string;
     description: string;
     urlToImage: string;
+    url: string;
 }
 interface HomeProps {
     children: ReactNode;
@@ -38,13 +39,16 @@ const Home = ({articles} : HomeProps) => {
     return ( 
     <div className={styles.container}>
         <div className={styles.innerContainer}>
-            {articles?.articles?.map((article: { id: Key | null | undefined; author: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | PromiseLikeOfReactNode | null | undefined; title: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | PromiseLikeOfReactNode | null | undefined; description: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | PromiseLikeOfReactNode | null | undefined; urlToImage: string | undefined; }) => (
+            {articles?.articles?.map((article: {
+                url: string | undefined; id: Key | null | undefined; author: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | PromiseLikeOfReactNode | null | undefined; title: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | PromiseLikeOfReactNode | null | undefined; description: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | PromiseLikeOfReactNode | null | undefined; urlToImage: string | undefined; 
+}) => (
                 <Card key={article.id}>
 
                     <Card padding={15}>
 
                         <p>{article.author}</p>
-                        <h2 className="font-bold">{article.title}</h2>
+                        <a className="font-bold" href={article.url}>{article.title}</a>
+                        {/* <h2 className="font-bold">{article.title}</h2> */}
                         <p>{article.description}</p>
                         <img src={article.urlToImage}></img>
                         {/* <img>{article.urlToImage}</img> */}

@@ -8,10 +8,10 @@ import { useState, useContext } from 'react';
 import * as yup from 'yup';
 import axios, { AxiosError } from "axios";
 import { AppContext, ContextType } from '../../../providers/Provider';
+import { redirect } from 'next/navigation';
 import Link from 'next/link';
-// import { redirect } from 'next/navigation';
-// import { revalidatePath } from 'next/cache';
-
+import { revalidatePath } from 'next/cache';
+import { useRouter } from 'next/router';
 
 
 interface DataProps {   
@@ -44,6 +44,7 @@ const Login = () => {
 
 
         // const navigate = useNavigate();
+        const route = useRouter ();
 
         // const handleRegister = () => {
         //     navigate('/register')
@@ -62,10 +63,11 @@ const Login = () => {
                     password: data.password
                 })
     
-                window.localStorage.setItem('token', response.data.data.token)
+                window.localStorage.setItem('token', response.data.data.token);
 
-                // revalidatePath ('/auth/login')
+                // revalidatePath ('/auth/login');
                 // redirect('/')
+                route.push('/')
 
             } catch (error) {
                 const err = error as AxiosError as any

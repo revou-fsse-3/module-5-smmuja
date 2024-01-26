@@ -27,8 +27,10 @@ const NavBar : NavBarComponents = ({ children, ...resProps}) => {
                         <NavItem title="Sports" href="/news/sports"/>
                         <NavItem title="Health" href="/news/health"/>
                         <NavItem title="Entertainment" href="/news/entertainment"/>
-                        <NavItem title="Business" href="/news/business"/>
-                        <NavItem title="Tech" href="/news/tech"/>
+                        {/* <NavItem title="Business" href="/news/business"/> */}
+                        <Link href='/news/business'> Business <span className='font-features sups text-stone-600 text-xs bg-color-red'>Premium</span></Link>
+                        <Link href='/news/tech'> Tech <span className='font-features sups text-stone-600 text-xs bg-color-red'>Premium</span></Link>
+                        {/* <NavItem title="Tech" href="/news/tech"/> */}
             
                     </ul>
             

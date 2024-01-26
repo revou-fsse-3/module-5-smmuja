@@ -5,6 +5,7 @@ import styles from './../News.module.css'
 // import {useQuery } from 'react-query';
 // import { GetServerSideProps, InferGetServerSidePropsType } from 'next';
 import axios from 'axios';
+import AuthComponent from "@/components/Auth/AuthComponent";
 
 interface Tech {
     children: ReactNode;
@@ -57,4 +58,4 @@ const Tech = ({articles} : TechProps) => {
 };
 
 
-export default Tech;
+export default AuthComponent(Tech);

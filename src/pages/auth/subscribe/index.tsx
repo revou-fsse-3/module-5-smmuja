@@ -8,9 +8,10 @@ import * as yup from 'yup';
 import axios, { AxiosError } from "axios";
 // import { useNavigate } from "react-router-dom";
 import { AppContext, ContextType } from "../../../providers/Provider";
+import { redirect } from 'next/navigation';
 import Link from 'next/link';
-// import { redirect } from 'next/navigation';
 // import { revalidatePath } from 'next/cache';
+import { useRouter } from 'next/router';
 
 interface DataProps {   
         name: string;
@@ -22,6 +23,7 @@ interface DataProps {
 const Subscribe = () => {
 
     // const navigate = useNavigate();
+    const route = useRouter ();
 
     const context = useContext<ContextType>(AppContext)
     const setOpen = context?.setOpen
@@ -55,6 +57,8 @@ const Subscribe = () => {
     
                 // revalidatePath ('/auth/subscribe')
                 // redirect('/auth/login')
+                route.push('/auth/login')
+
 
             } catch (error) {
                 const err = error as AxiosError as any
@@ -105,7 +109,7 @@ const Subscribe = () => {
                     <Input className='block border-neutral-400 border' 
                     name={'name'} 
                     placeholder='Input your name'
-                    value={formMik.values.email}
+                    value={formMik.values.name}
                     onChange={formMik.handleChange('name')}/>
                     {
                         formMik.errors.name && (

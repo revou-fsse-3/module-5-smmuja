@@ -6,7 +6,8 @@ export default async function getAllnews(
     searchNews: string
     ): Promise<AllNewsProps> {
 
-    const req = await fetch(baseApi + "/search/news?query=" + "irons", apiConfig);
+    // const req = await fetch(baseApi + "/search/news?query=" + "irons", apiConfig);
+    const req = await fetch(baseApi + `"/search?query=" + ${''}`, apiConfig);
 
     const response = (await req.json()) as unknown;
 
